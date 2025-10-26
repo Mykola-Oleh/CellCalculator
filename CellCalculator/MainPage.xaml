@@ -4,9 +4,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Електронні таблиці — Лаб. робота">
-    <VerticalStackLayout Padding="10" Spacing="8">
 
-        <HorizontalStackLayout Spacing="10">
+    <Grid RowDefinitions="Auto, *">
+
+        <HorizontalStackLayout Grid.Row="0" Padding="10" Spacing="5">
             <Label Text="Режим:" VerticalOptions="Center"/>
             <Picker x:Name="ModePicker" WidthRequest="180">
                 <Picker.Items>
@@ -14,29 +15,24 @@
                     <x:String>ЗНАЧЕННЯ</x:String>
                 </Picker.Items>
             </Picker>
-
             <Button Text="Зберегти" Clicked="OnSaveClicked"/>
             <Button Text="Завантажити" Clicked="OnLoadClicked"/>
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout Spacing="5">
             <Label Text="Рядки:" VerticalOptions="Center"/>
             <Entry x:Name="RowsEntry" WidthRequest="60" Keyboard="Numeric" Text="10"/>
             <Label Text="Стовпці:" VerticalOptions="Center"/>
             <Entry x:Name="ColsEntry" WidthRequest="60" Keyboard="Numeric" Text="10"/>
             <Button Text="Змінити розмір" Clicked="OnResizeClicked"/>
-
             <Button Text="Допомога" Clicked="OnHelpClicked"/>
             <Button Text="Про програму" Clicked="OnAboutClicked"/>
             <Button Text="Вийти" Clicked="ExitButtonClicked" />
         </HorizontalStackLayout>
 
-
-        <ScrollView>
-            <Grid x:Name="TableGrid" RowSpacing="2" ColumnSpacing="2" BackgroundColor="LightGray" Padding="2"/>
+        <ScrollView Grid.Row="1" Orientation="Horizontal">
+            <ScrollView Orientation="Vertical">
+                <Grid x:Name="TableGrid" RowSpacing="2" ColumnSpacing="2" BackgroundColor="LightGray" Padding="2"/>
+            </ScrollView>
         </ScrollView>
 
-
-    </VerticalStackLayout>
+    </Grid>
 
 </ContentPage>
