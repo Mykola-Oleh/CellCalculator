@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CellCalculator.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Електронні таблиці — Лаб. робота">
+    <VerticalStackLayout Padding="10" Spacing="8">
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Режим:" VerticalOptions="Center"/>
+            <Picker x:Name="ModePicker" WidthRequest="180">
+                <Picker.Items>
+                    <x:String>ВИРАЗ</x:String>
+                    <x:String>ЗНАЧЕННЯ</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Button Text="Зберегти" Clicked="OnSaveClicked"/>
+            <Button Text="Завантажити" Clicked="OnLoadClicked"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="5">
+            <Label Text="Рядки:" VerticalOptions="Center"/>
+            <Entry x:Name="RowsEntry" WidthRequest="60" Keyboard="Numeric" Text="10"/>
+            <Label Text="Стовпці:" VerticalOptions="Center"/>
+            <Entry x:Name="ColsEntry" WidthRequest="60" Keyboard="Numeric" Text="10"/>
+            <Button Text="Змінити розмір" Clicked="OnResizeClicked"/>
+
+            <Button Text="Допомога" Clicked="OnHelpClicked"/>
+            <Button Text="Про програму" Clicked="OnAboutClicked"/>
+            <Button Text="Вийти" Clicked="ExitButtonClicked" />
+        </HorizontalStackLayout>
+
+
+        <ScrollView>
+            <Grid x:Name="TableGrid" RowSpacing="2" ColumnSpacing="2" BackgroundColor="LightGray" Padding="2"/>
+        </ScrollView>
+
+
+    </VerticalStackLayout>
+
+</ContentPage>

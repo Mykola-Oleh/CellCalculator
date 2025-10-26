@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Cell">
+    <Position X="7" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAACAA=</HashCode>
+      <FileName>Cell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CellCalculator.SpreadsheetModel">
+    <Position X="5.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAAIACAAAQAAAUAAAAIAAIABAAAAAAABAAAAAAAAQAA=</HashCode>
+      <FileName>SpreadsheetModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CellCalculator.EvalResult">
+    <Position X="1.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ExprEvaluatorVisitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CellCalculator.ExprEvaluatorVisitor">
+    <Position X="3.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAIAAACAAAAAAAAIAQAAAAIAAIAIJAAAAAAA=</HashCode>
+      <FileName>ExprEvaluatorVisitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SyntaxError">
+    <Position X="8.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAABAAA=</HashCode>
+      <FileName>SyntaxErrorListener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SyntaxErrorListener">
+    <Position X="10.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>SyntaxErrorListener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
