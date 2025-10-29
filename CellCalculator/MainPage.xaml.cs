@@ -18,7 +18,7 @@ namespace CellCalculator
 
             model = new SpreadsheetModel(rows, cols);
 
-            ModePicker.SelectedIndex = 0;
+            ModePicker.SelectedIndex = 1;
             RowsEntry.Text = rows.ToString();
             ColsEntry.Text = cols.ToString();
 
@@ -161,8 +161,8 @@ namespace CellCalculator
                     {
                         model.Cells[addr].Expression = entry.Text ?? "";
                         model.RecalculateAll();
-                        RenderCells();
                     }
+                    ModePicker.SelectedIndex = 1;
                 }
                 catch (Exception ex)
                 {
