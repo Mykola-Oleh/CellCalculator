@@ -207,7 +207,8 @@ namespace CellCalculator
         {
             try
             {
-                var path = Path.Combine(FileSystem.AppDataDirectory, "spreadsheet_save.json");
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                var path = Path.Combine(desktopPath, "spreadsheet_save.json");
                 await SerializerHelper.SaveAsync(model, path);
                 await DisplayAlert("Збережено", $"Файл збережено: {path}", "OK");
             }
@@ -221,7 +222,8 @@ namespace CellCalculator
         {
             try
             {
-                var path = Path.Combine(FileSystem.AppDataDirectory, "spreadsheet_save.json");
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                var path = Path.Combine(desktopPath, "spreadsheet_save.json");
                 var loaded = await SerializerHelper.LoadAsync<SpreadsheetModel>(path);
                 if (loaded != null)
                 {

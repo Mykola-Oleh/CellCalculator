@@ -2,8 +2,7 @@
 using Microsoft.Maui.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using Microsoft.Extensions.Logging;
-using CellCalculator.Services; 
+using Microsoft.Extensions.Logging; 
 namespace CellCalculator
 {
     public static class MauiProgram
@@ -25,9 +24,7 @@ namespace CellCalculator
             // Register other services...
 
             // Register platform implementation: Windows only
-#if WINDOWS
-            builder.Services.AddSingleton<IFilePickerService, FilePickerService>();
-#endif
+
 
             return builder.Build();
         }
