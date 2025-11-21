@@ -220,6 +220,17 @@ namespace CellCalculator
 
         private async void OnLoadClicked(object sender, EventArgs e)
         {
+            var options = new PickOptions
+            {
+                PickerTitle = "Оберіть файл",
+                FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+                {
+                    { DevicePlatform.WinUI, new[] { ".json" } },
+                })
+            };
+
+            var result = await FilePicker.Default.PickAsync(options);
+            
             try
             {
                 string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
