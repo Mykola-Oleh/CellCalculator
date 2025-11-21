@@ -73,8 +73,8 @@ namespace Tests
         }
 
         [Theory]
-        [InlineData("5 * (10", "Syntax error")]
-        [InlineData("inc(1, 2)", "Syntax error")]
+        [InlineData("5 * (10", "Синтаксична помилка:")]
+        [InlineData("inc(1, 2)", "Синтаксична помилка:")]
         public void TestSyntaxErrors(string formula, string expectedErrorStart)
         {
             var (result, hasError) = Evaluate(formula);
@@ -91,7 +91,7 @@ namespace Tests
                 { "B1", "A1 + 1" }
             };
             var formula = "B1 * 2";
-            var expectedError = "CYCLE";
+            var expectedError = "ЗАЦИКЛЕННЯ";
 
             var (result, hasError) = Evaluate(formula, dependencies);
 
@@ -107,7 +107,7 @@ namespace Tests
                 { "B1", "10 / / 5" }
             };
             var formula = "B1 + 5";
-            var expectedError = "Ref error:";
+            var expectedError = "Помилка посилання:";
 
             var (result, hasError) = Evaluate(formula, dependencies);
 

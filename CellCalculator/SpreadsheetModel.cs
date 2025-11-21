@@ -100,7 +100,7 @@ namespace CellCalculator
                 {
                     if (Cells.ContainsKey(addr))
                     {
-                        Cells[addr].DisplayValue = "CYCLE";
+                        Cells[addr].DisplayValue = "ЗАЦИКЛЕННЯ";
                         Cells[addr].HasError = true;
                     }
                 }
@@ -148,7 +148,6 @@ namespace CellCalculator
 
             foreach (var addr in order)
             {
-                if (Cells[addr].HasError && Cells[addr].DisplayValue == "CYCLE") continue;
 
                 var cell = Cells[addr];
                 cell.HasError = false;
@@ -168,23 +167,23 @@ namespace CellCalculator
                 if (errListener.Errors.Count > 0)
                 {
                     var first = errListener.Errors.First();
-                    cell.DisplayValue = $"Syntax error at {first.Line}:{first.CharPositionInLine}";
+                    cell.DisplayValue = $"Синтаксична помилка: {first.Line}:{first.CharPositionInLine}";
                     cell.HasError = true;
                     continue;
                 }
 
                 var visitor = new ExprEvaluatorVisitor((cellRef) =>
                 {
-                    if (!Cells.ContainsKey(cellRef)) return new EvalResult($"Unknown cell {cellRef}");
+                    if (!Cells.ContainsKey(cellRef)) return new EvalResult($"Невідома клітинка {cellRef}");
                     var depCell = Cells[cellRef];
 
-                    if (depCell.HasError) return new EvalResult($"Ref error: {depCell.DisplayValue ?? "ERR"}");
+                    if (depCell.HasError) return new EvalResult($"Помилка посилання: {depCell.DisplayValue ?? "ERR"}");
 
                     if (string.IsNullOrEmpty(depCell.Expression)) return new EvalResult(BigInteger.Zero);
 
                     if (BigInteger.TryParse(depCell.DisplayValue, out var bi)) return new EvalResult(bi);
 
-                    return new EvalResult($"Ref value is not a number: {depCell.DisplayValue}");
+                    return new EvalResult($"Значення не є числом: {depCell.DisplayValue}");
                 });
 
                 var result = visitor.Visit(tree);
